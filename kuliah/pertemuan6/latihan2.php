@@ -32,6 +32,12 @@ $mobil = [
  	<meta name="viewport" content="width=device-width, initial-scale=1">
  	<title>Daftar Mahasiswa</title>
  </head>
+ <style>
+ 	.foto {
+ 		width: auto;
+ 		height: 200px;
+ 	}
+ </style>
  <body>
  	<h1>Daftar Mahasiswa</h1>
 
@@ -39,7 +45,7 @@ $mobil = [
 	<?php foreach($mobil as $car) : ?>
 	 <ul>
 	 	<li>
-	 		<img src="img/<?php $car["gambar"]; ?>">
+	 		<img src="img/<?php echo $car["gambar"]; ?> " class="foto">
 	 	</li>
 	 	<li>Merk : <?php echo $car["merk"]; ?></li>
 	 	<li>Jenis : <?php echo $car["jenis"] ?></li>
