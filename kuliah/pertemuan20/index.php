@@ -1,7 +1,7 @@
 <?php 
 session_start();
 
-if ( !isset($_SESSION['login'])) {
+if( !isset($_SESSION["login"]) ) {
 	header("Location: login.php");
 	exit;
 }
@@ -19,6 +19,19 @@ if( isset($_POST["cari"]) ) {
 <html>
 <head>
 	<title>Halaman Admin</title>
+	<style>
+		.loader {
+			width: 100px;
+			position: absolute;
+			top: 135px;
+			left: 305px;
+			z-index: -1;
+			display: none;
+		}
+	</style>
+
+	<script src="js/jquery-3.6.0.min.js"></script>
+	<script src="js/script.js"></script>
 </head>
 <body>
 
@@ -33,6 +46,8 @@ if( isset($_POST["cari"]) ) {
 
 	<input type="text" name="keyword" size="40" autofocus placeholder="masukkan keyword pencarian.." autocomplete="off" id="keyword">
 	<button type="submit" name="cari" id="tombol-cari">Cari!</button>
+
+	<img src="img/loader.gif" class="loader">
 	
 </form>
 
@@ -70,6 +85,7 @@ if( isset($_POST["cari"]) ) {
 </table>
 </div>
 
-<script src="js/script.js"></script>
+
+
 </body>
 </html>
