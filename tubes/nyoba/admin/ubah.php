@@ -1,8 +1,11 @@
 <?php 
 
 require '../php_manufactur/functions.php';
-// cek apakah yang mengakses halaman ini sudah login
 
+ // // cek apakah yang mengakses halaman ini sudah login
+ // if($_SESSION['role']==""){
+ //  header("location:../index.php?pesan=gagal");
+ // }
 
 $id_sabun = $_GET['id_sabun'];
 
@@ -46,9 +49,9 @@ if (isset($_POST['submit'])) {
 	<div class="row mt-3">
 	<div class="col-8">	
 
-	<form action="" method="post">
+	<form action="" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="id_sabun" value="<?= $sabun['id_sabun'] ?>">
-	
+		<input type="hidden" name="gambar_sabun" value="<?= $sabun["gambar_sabun"]; ?>">
 		<ul>
 			<div class="mb-3">
 				<label for="nama_sabun" class="form-label">Nama Sabun :</label><br>
@@ -68,7 +71,7 @@ if (isset($_POST['submit'])) {
 			</div>
 			<div class="mb-3">
 				<label for="gambar_sabun" class="form-label">Gambar Sabun :</label><br>
-				<input type="text" name="gambar_sabun" id="gambar_sabun" required value="<?= $sabun['gambar_sabun'] ?>" class="form-control" >
+				<input type="file" name="gambar_sabun" id="gambar_sabun" required value="<?= $sabun['gambar_sabun'] ?>" class="form-control" >
 			</div>
 			<br>
 			<div class="mb-3">

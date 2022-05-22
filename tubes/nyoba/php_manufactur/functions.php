@@ -51,12 +51,20 @@ function ubah($data) {
 	$harga_sabun = htmlspecialchars($data["harga_sabun"]);
 	$gambar_sabun = htmlspecialchars($data["gambar_sabun"]);
 	
+	// cek apakah user pilih gambar baru atau tidak
+	if( $_FILES['gambar_sabun']['error'] === 4 ) {
+		$gambar_soap = $gambar_sabun;
+	} else {
+		$gambar_soap = upload();
+	}
+
+
 	$query = "UPDATE data_sabun SET
 				nama_sabun = '$nama_sabun',
 				bahan_sabun = '$bahan_sabun',
 				kegunaan_sabun = '$kegunaan_sabun',
 				harga_sabun = '$harga_sabun',
-				gambar_sabun = '$gambar_sabun'
+				gambar_sabun = '$gambar_soap'
 			  WHERE id_sabun = $id_sabun
 			";
 

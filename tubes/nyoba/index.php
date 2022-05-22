@@ -5,24 +5,26 @@
   }
  }
 
- if( isset($_POST["login"]) ) {
+//  if( isset($_POST["login"]) ) {
 
-    $username = $_POST["username"];
-    $password = $_POST["password"];
+//     $username = mysqli_real_escape_string($conn,$_POST['username']);
+//     $password = mysqli_real_escape_string($conn,$_POST['password']);
 
-    $result = mysqli_query($conn, "SELECT * FROM user WHERE username = '$username'");
+//     $result = mysqli_query($conn, "SELECT * FROM user WHERE username = '$username'");
 
-    // cek username
-    if( mysqli_num_rows($result) === 1 ) {
+//     // cek username
+//     if( mysqli_num_rows($result) === 1 ) {
 
-        // cek password
-        $row = mysqli_fetch_assoc($result);
-        if( password_verify($password, $row["password"]) ) {
-            header("Location: php_manufactur/checkrole.php");
-            exit;
-        }
-    }
-}
+//         // cek password
+//         $row = mysqli_fetch_assoc($result);
+//         if( password_verify($password, $row["password"]) ) {
+//             header("Location: ../user/user.php");
+//             exit;
+//         }
+//     }
+// }
+
+
 
  ?>
 <html>

@@ -95,7 +95,7 @@ if(mysqli_num_rows($select) > 0){
             <?php foreach ($listsabun as $row) : ?>
             <tr class="thead-dark text-center">
                 <td><?= $i; ?></td>
-                <td><img src="../asset/img/<?= $row["gambar_sabun"]; ?>" width="80"></td>
+                <td><img src="../asset/img/<?= $row["gambar_sabun"]; ?>" class="rounded foto" width="auto" height="50px"></td>
                 <td><?= $row["nama_sabun"]; ?></td>
                 <td><?= $row["bahan_sabun"]; ?></td>
                 <td><?= $row["kegunaan_sabun"]; ?></td>

@@ -1,8 +1,11 @@
 <?php 
 
 require '../php_manufactur/functions.php';
-// cek apakah yang mengakses halaman ini sudah login
- 
+
+ // // cek apakah yang mengakses halaman ini sudah login
+ // if($_SESSION['role']==""){
+ //  header("location:../index.php?pesan=gagal");
+ // } 
 
 if (isset($_POST['submit'])) {	
     //cek apakah data berhasil di tambahkan atau tidak

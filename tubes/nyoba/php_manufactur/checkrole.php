@@ -5,7 +5,8 @@ include 'functions.php';
 $username = mysqli_real_escape_string($conn,$_POST['username']);
 $password = mysqli_real_escape_string($conn,$_POST['password']);
 
-$login = mysqli_query($conn,"SELECT * FROM user WHERE username='$username' and password='$password'");
+
+$login = mysqli_query($conn,"SELECT * FROM user WHERE username='$username' && password='$password'");
 $cek = mysqli_num_rows($login);
      if($cek > 0){
           $data = mysqli_fetch_assoc($login);
