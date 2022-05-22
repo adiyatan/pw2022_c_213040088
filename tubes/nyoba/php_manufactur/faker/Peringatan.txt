@@ -1,0 +1,19 @@
+1. Ini merupakan generator penambah user 
+secara otomatis menggunkanan sistem faker. 
+
+(peringatan) Jangan asal mengcoba menjalan 
+kan script ini bila data tidak sesuai dengan
+yang anda inginkan
+
+2. Jika anda meng coppy project ini silahkan 
+untuk menyesuaikan nama database dan table.
+
+3. Anda juga bisa meng costum data sesuai yang 
+anda ingin kan menggunakan faker ini.
+
+4. Ubah saja yang ada di halaman faker.php
+
+5. Dan jangan lupa untuk atur sesuai data yang 
+anda butuhkan
+
+Made by adiyatan

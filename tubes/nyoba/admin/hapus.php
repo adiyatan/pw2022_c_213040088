@@ -1,9 +1,11 @@
 <?php 
 require '../php_manufactur/functions.php';
 
-$id = $_GET["id"];
+// cek apakah yang mengakses halaman ini sudah login
 
-if( hapus($id) > 0 ) {
+$id_sabun = $_GET['id_sabun'];
+
+if( hapus($id_sabun) > 0 ) {
 	echo "
 		<script>
 			alert('data berhasil dihapus!');
