@@ -20,6 +20,18 @@ header("location:../index.php?pesan=gagal");
     <head>
         <title>Halaman User</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <script src="../asset/js/jquery-3.6.0.min.js"></script>
+        <script src="../asset/js/script.js"></script>
+        <style>
+            .loader {
+            width: 100px;
+            position: absolute;
+            top: 1px;
+            left: 285px;
+            z-index: -1;
+            display: none;
+        }
+        </style>
     </head>
     <body>
 
@@ -36,14 +48,16 @@ header("location:../index.php?pesan=gagal");
             <div class="col-md">
                     <form action="" method="post">
                         <div class="input-group">
-                            <input type="text" name="keyword" class="form-control" placeholder="masukkan kata kunci" autocomplete="off" autofocus>
+                            <input type="text" name="keyword" class="form-control" placeholder="masukkan kata kunci" autocomplete="off" autofocus id="keyword">
                             <div class="input-group-append">
-                                <button type="submit" name="cari" class="btn btn-secondary p-3">Cari</button>
+                                <button type="submit" name="cari" class="btn btn-secondary p-3" id="tombol-cari">Cari</button>
                             </div>
+                            <img src="../asset/img/loader.gif" class="loader">
                         </div>
                     </form>
                 </div>
                 </div>
+                <div id="tabel-sabun">
         <table border="1" cellpadding="10" cellspacing="0" width="600px" class="table table-bordered table-hover table-secondary mt-4">
             
             <tr class="thead-dark text-center">
@@ -75,6 +89,7 @@ header("location:../index.php?pesan=gagal");
             <?php endforeach;  ?>
 
         </table>
+        </div>
         </div>
 
         <a href="../php_manufactur/logout.php" class="btn btn-danger">LOGOUT</a>

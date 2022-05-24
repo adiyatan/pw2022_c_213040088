@@ -68,3 +68,12 @@ label {
     text-align: center;
     border: 1px solid #b32929;
 }
+
+.loader {
+            width: 100px;
+            position: absolute;
+            top: 135px;
+            left: 305px;
+            z-index: -1;
+            display: none;
+        }

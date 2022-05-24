@@ -59,11 +59,11 @@ if (isset($_POST['submit'])) {
 			</div>
 			<div class="mb-3">
 				<label for="bahan_sabun" class="form-label">Bahan Sabun:</label><br>
-				<textarea name="bahan_sabun" id="bahan_sabun" rows="5" cols="50" required placeholder="<?= $sabun['bahan_sabun'] ?>" class="form-control" ></textarea>
+				<textarea name="bahan_sabun" id="bahan_sabun" rows="5" cols="50" required class="form-control" ><?= $sabun['bahan_sabun'] ?></textarea>
 			</div>
 			<div class="mb-3">
 				<label for="kegunaan_sabun" class="form-label">Kegunaan Sabun :</label><br>
-				<textarea name="kegunaan_sabun" id="kegunaan_sabun" rows="4" cols="50" required placeholder="<?= $sabun['kegunaan_sabun'] ?>" class="form-control"  ></textarea>
+				<textarea name="kegunaan_sabun" id="kegunaan_sabun" rows="4" cols="50" required class="form-control"  ><?= $sabun['kegunaan_sabun'] ?></textarea>
 			</div>
 			<div class="mb-3">
 				<label for="harga_sabun" class="form-label">Harga Sabun :</label><br>

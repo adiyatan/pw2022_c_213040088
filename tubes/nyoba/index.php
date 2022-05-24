@@ -42,7 +42,7 @@
 
             <form action="php_manufactur/checkrole.php" method="post">
             <label>Username</label>
-            <input type="text" name="username" id="username" class="form_login" placeholder="Username" required="required">
+            <input type="text" name="username" id="username" class="form_login" placeholder="Username" required="required" autocomplete="off">
 
             <label>Password</label>
             <input type="password" name="password" id="password" class="form_login" placeholder="Password" required="required">
