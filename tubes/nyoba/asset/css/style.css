@@ -1,7 +1,7 @@
 body {
     font-family: sans-serif;
     /*background: #ebf9fb;*/
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     content: '';

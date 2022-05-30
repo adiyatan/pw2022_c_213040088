@@ -1,28 +1,31 @@
 <?php
+require 'php_manufactur/functions.php';
+
  if(isset($_GET['pesan'])){
   if($_GET['pesan']=="gagal"){
    echo "<div class='alert'>Username dan Password Salah !</div>";
   }
  }
 
-//  if( isset($_POST["login"]) ) {
+if (isset($_POST['login'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
-//     $username = mysqli_real_escape_string($conn,$_POST['username']);
-//     $password = mysqli_real_escape_string($conn,$_POST['password']);
+    $result = mysqli_query($conn, "SELECT * FROM user WHERE username = '$username'");
 
-//     $result = mysqli_query($conn, "SELECT * FROM user WHERE username = '$username'");
+    //cek username
+    if(mysqli_num_rows($result) === 1 ) {
+        
+        //cek password
+        $row = mysqli_fetch_assoc($result);
+        if(password_verify($password, $row["password"])) {
+            header("Location: php_manufactur/checkrole.php");
+            exit;
+        }
+    }
 
-//     // cek username
-//     if( mysqli_num_rows($result) === 1 ) {
-
-//         // cek password
-//         $row = mysqli_fetch_assoc($result);
-//         if( password_verify($password, $row["password"]) ) {
-//             header("Location: ../user/user.php");
-//             exit;
-//         }
-//     }
-// }
+    $error = true;
+}
 
 
 
@@ -41,10 +44,10 @@
             <p class="tulisan_atas">Silahkan Masuk</p>
 
             <form action="php_manufactur/checkrole.php" method="post">
-            <label>Username</label>
+            <label for="username">Username</label>
             <input type="text" name="username" id="username" class="form_login" placeholder="Username" required="required" autocomplete="off">
 
-            <label>Password</label>
+            <label for="password">Password</label>
             <input type="password" name="password" id="password" class="form_login" placeholder="Password" required="required">
 
             <input type="submit" class="tombol_login" name="login" value="LOGIN">

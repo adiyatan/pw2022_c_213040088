@@ -95,14 +95,14 @@ if(mysqli_num_rows($select) > 0){
             <?php foreach ($listsabun as $row) : ?>
             <tr class="thead-dark text-center">
                 <td><?= $i; ?></td>
-                <td><img src="../asset/img/<?= $row["gambar_sabun"]; ?>" class="rounded foto" width="auto" height="50px"></td>
+                <td><img src="../asset/uploaded-img/<?= $row["gambar_sabun"]; ?>" class="rounded foto" width="auto" height="50px"></td>
                 <td><?= $row["nama_sabun"]; ?></td>
                 <td><?= $row["bahan_sabun"]; ?></td>
                 <td><?= $row["kegunaan_sabun"]; ?></td>
                 <td><?= $row["harga_sabun"]; ?></td>
                 <td>
                     <a href="ubah.php?id_sabun=<?= $row["id_sabun"]; ?>" class="btn btn-success">Ubah</a>
-                    <a href="hapus.php?id_sabun=<?= $row["id_sabun"]; ?> " class="btn btn-warning" onclick="return confirm('yakin?')">hapus</a>
+                    <a href="hapus.php?id_sabun=<?= $row["id_sabun"]; ?> " class="btn btn-warning" onclick="return confirm('Hapus data?');">hapus</a>
 
                 </td>
             </tr>

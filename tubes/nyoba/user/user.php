@@ -41,8 +41,9 @@ header("location:../index.php?pesan=gagal");
 
         <h1>List of health soaps</h1>
         <p>by Keira SoapFactory</p>
+        <a href="profille.php" class="btn btn-primary">ubah profile</a>
 
-        <div class="row">
+        <div class="row"> 
         <div class="col-md-3">
             <h4>Daftar Sabun</h4>
             <div class="col-md">
@@ -74,14 +75,14 @@ header("location:../index.php?pesan=gagal");
             <?php foreach ($listsabun as $row) : ?>
             <tr class="thead-dark text-center">
                 <td><?= $i; ?></td>
-                <td><img src="../asset/img/<?= $row["gambar_sabun"]; ?>" width="80"></td>
+                <td><img src="../asset/uploaded-img/<?= $row["gambar_sabun"]; ?>" width="80"></td>
                 <td><?= $row["nama_sabun"]; ?></td>
                 <td><?= $row["bahan_sabun"]; ?></td>
                 <td><?= $row["kegunaan_sabun"]; ?></td>
                 <td><?= $row["harga_sabun"]; ?></td>
                 <td>
-                    <a href="ubah.php?id_sabun=<?= $row["id_sabun"]; ?>" class="btn btn-success">Masukan ke keranjang</a> <br>
-                    <a href="hapus.php?id_sabun=<?= $row["id_sabun"]; ?> " class="btn btn-warning" onclick="return confirm('Barang dimasukan ke wishlist')">Tambah kan ke wishlist</a>
+                    <a href="ubah.php?id_sabun=<?= $row["id_sabun"]; ?>" class="btn btn-success">Detail</a> <br>
+                    <a href="hapus.php?id_sabun=<?= $row["id_sabun"]; ?> " class="btn btn-warning" onclick="return confirm('Barang dimasukan ke wishlist')">Beli</a>
 
                 </td>            
             </tr>

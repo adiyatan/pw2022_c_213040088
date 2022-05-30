@@ -2,10 +2,11 @@
 
 require '../php_manufactur/functions.php';
 
- // // cek apakah yang mengakses halaman ini sudah login
- // if($_SESSION['role']==""){
- //  header("location:../index.php?pesan=gagal");
- // }
+session_start();
+ // cek apakah yang mengakses halaman ini sudah login
+ if($_SESSION['role']==""){
+  header("location:../index.php");
+ }
 
 $id_sabun = $_GET['id_sabun'];
 
@@ -71,11 +72,11 @@ if (isset($_POST['submit'])) {
 			</div>
 			<div class="mb-3">
 				<label for="gambar_sabun" class="form-label">Gambar Sabun :</label><br>
-				<input type="file" name="gambar_sabun" id="gambar_sabun" required value="<?= $sabun['gambar_sabun'] ?>" class="form-control" >
+				<input type="file" name="gambar_sabun" id="gambar_sabun" value="<?= $sabun['gambar_sabun'] ?>" class="form-control" >
 			</div>
 			<br>
 			<div class="mb-3">
-				<button type="submit" name="submit" class="btn btn-sn btn-danger">Ubah Data</button>
+				<button type="submit" name="submit" class="btn btn-sn btn-danger" onclick="return confirm('Ubah data?');">Ubah Data</button>
 			</div>
 		</ul>
 

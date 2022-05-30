@@ -5,7 +5,8 @@ require 'php_manufactur/functions.php';
 if (isset($_POST['register'])) {
     if(registrasi($_POST) > 0 ) {
         echo "<script>
-                alert('user baru berhasil ditambahkan!')
+                alert('Berhasil mendaftar!');
+                document.location.href = 'index.php'
               </script>";
     } else {
         echo mysqli_error($conn);
@@ -27,6 +28,9 @@ if (isset($_POST['register'])) {
             <p class="tulisan_atas">Silahkan Daftar</p>
 
             <form action="" method="post">
+            <label>Nama Lengkap</label>
+            <input type="text" name="nama_user" id="nama_user" class="form_login" placeholder="Nama Lengkap" required="required">
+
             <label>Username</label>
             <input type="text" name="username" id="username" class="form_login" placeholder="Username" required="required">
 

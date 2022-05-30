@@ -112,7 +112,7 @@ function upload() {
 	$namaFileBaru_sabun .= '.';
 	$namaFileBaru_sabun .= $ekstensiGambar_sabun;
 
-	move_uploaded_file($tmpName_sabun, '../asset/img/' . $namaFileBaru_sabun);
+	move_uploaded_file($tmpName_sabun, '../asset/uploaded-img/' . $namaFileBaru_sabun);
 
 	return $namaFileBaru_sabun;
 }
@@ -120,10 +120,11 @@ function upload() {
 function registrasi($data) {
 	global $conn;
 
-	$username = strtolower(stripslashes($data["username"]));
-	$email = strtolower(stripslashes($data["email"]));
-	$password = mysqli_real_escape_string($conn, $data['password']);
-	$password2 = mysqli_real_escape_string($conn, $data['password2']);
+	$nama_user = htmlspecialchars(ucwords($data["nama_user"]));
+	$username = htmlspecialchars(strtolower(stripslashes($data["username"])));
+	$email = htmlspecialchars(strtolower(stripslashes($data["email"])));
+	$password = htmlspecialchars(mysqli_real_escape_string($conn, $data['password']));
+	$password2 = htmlspecialchars(mysqli_real_escape_string($conn, $data['password2']));
 
 	//agar username dan email tidak kosong dan tanpa spasi
 	if (preg_match_all('/\s/', $username)) {
@@ -169,12 +170,44 @@ function registrasi($data) {
 	$password = password_hash($password, PASSWORD_DEFAULT);
 
 	//tambahlan userbaru ke database
-	mysqli_query($conn, "INSERT INTO user VALUES('', 'Pelanggan','$username', '$password','$email','user','','','','','','')");
+	mysqli_query($conn, "INSERT INTO user VALUES('', '$nama_user','$username', '$password','$email','user','','','','','','')");
 
 	return mysqli_affected_rows($conn);
 }
 
+function profile($data){
+	global $conn;
 
+	$id_user = $data["id_user"];
+	$update_name = mysqli_real_escape_string($conn, $_POST['update_name']);
+   $update_email = mysqli_real_escape_string($conn, $_POST['update_email']);
+   $update_phone = mysqli_real_escape_string($conn, $_POST['update_phone']);
+   $update_alamat = mysqli_real_escape_string($conn, $_POST['update_alamat']);
+   $update_kota = mysqli_real_escape_string($conn, $_POST['update_kota']);
+   $update_provinsi = mysqli_real_escape_string($conn, $_POST['update_provinsi']);
+   $update_postcode = mysqli_real_escape_string($conn, $_POST['update_postcode']);
+
+
+   mysqli_query($conn, "UPDATE `user` SET nama_user = '$update_name', email_user = '$update_email', nomor_user ='$update_phone', alamat_user = '$update_alamat', kota_user = '$update_kota', provinsi = '$update_provinsi', postcode_user = '$update_postcode' WHERE id = '$id_user'") or die('query failed');
+
+   $update_image = $_FILES['update_image']['name'];
+   $update_image_size = $_FILES['update_image']['size'];
+   $update_image_tmp_name = $_FILES['update_image']['tmp_name'];
+   $update_image_folder = '../asset/uploaded-img/'.$update_image;
+
+   if(!empty($update_image)){
+      if($update_image_size > 2000000){
+         $message[] = 'image is too large';
+      }else{
+         $image_update_query = mysqli_query($conn, "UPDATE `user` SET gambar_user = '$update_image' WHERE id = '$id_user'") or die('query failed');
+         if($image_update_query){
+            move_uploaded_file($update_image_tmp_name, $update_image_folder);
+         }
+         $message[] = 'image updated succssfully!';
+      }
+   }
+   return mysqli_affected_rows($conn);
+}
 
 
 ?>

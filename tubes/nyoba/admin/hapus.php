@@ -1,10 +1,5 @@
 <?php 
 require '../php_manufactur/functions.php';
-
- // cek apakah yang mengakses halaman ini sudah login
- // if($_SESSION['role']==""){
- //  header("location:../index.php?pesan=gagal");
- // }
  
 $id_sabun = $_GET['id_sabun'];
 

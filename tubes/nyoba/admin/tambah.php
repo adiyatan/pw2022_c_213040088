@@ -2,10 +2,11 @@
 
 require '../php_manufactur/functions.php';
 
- // // cek apakah yang mengakses halaman ini sudah login
- // if($_SESSION['role']==""){
- //  header("location:../index.php?pesan=gagal");
- // } 
+session_start();
+ // cek apakah yang mengakses halaman ini sudah login
+ if($_SESSION['role']==""){
+  header("location:../index.php");
+ } 
 
 if (isset($_POST['submit'])) {	
     //cek apakah data berhasil di tambahkan atau tidak
@@ -70,7 +71,7 @@ if (isset($_POST['submit'])) {
 			</div>
 			<br>
 			<div class="mb-3">
-				<button type="submit" name="submit" class="btn btn-sn btn-danger">Tambahkan Data</button>
+				<button type="submit" name="submit" class="btn btn-sn btn-danger" onclick="return confirm('Tambah kan data?');">Tambahkan Data</button>
 			</div>
 		</ul>
 

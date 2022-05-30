@@ -6,11 +6,11 @@ $username = mysqli_real_escape_string($conn,$_POST['username']);
 $password = mysqli_real_escape_string($conn,$_POST['password']);
 
 
-$login = mysqli_query($conn,"SELECT * FROM user WHERE username='$username' && password='$password'");
+$login = mysqli_query($conn,"SELECT * FROM user WHERE username='$username'");
 $cek = mysqli_num_rows($login);
      if($cek > 0){
           $data = mysqli_fetch_assoc($login);
-
+          if(password_verify($password,$data['password'])) {
           // cek jika user login sebagai admin
           if($data['role']=="admin"){
                $_SESSION['id_admin'] = $data['id'];
@@ -27,7 +27,11 @@ $cek = mysqli_num_rows($login);
                }
                else{
                     header("location:../index.php?pesan=gagal");
-               } 
+               }               
+          }else{
+               header("location:../index.php?pesan=gagal");
+          }
+
       }else{
      header("location:../index.php?pesan=gagal");
      }
