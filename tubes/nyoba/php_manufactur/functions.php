@@ -183,12 +183,16 @@ function profile($data){
    $update_email = mysqli_real_escape_string($conn, $_POST['update_email']);
    $update_phone = mysqli_real_escape_string($conn, $_POST['update_phone']);
    $update_alamat = mysqli_real_escape_string($conn, $_POST['update_alamat']);
-   $update_kota = mysqli_real_escape_string($conn, $_POST['update_kota']);
-   $update_provinsi = mysqli_real_escape_string($conn, $_POST['update_provinsi']);
    $update_postcode = mysqli_real_escape_string($conn, $_POST['update_postcode']);
 
 
-   mysqli_query($conn, "UPDATE `user` SET nama_user = '$update_name', email_user = '$update_email', nomor_user ='$update_phone', alamat_user = '$update_alamat', kota_user = '$update_kota', provinsi = '$update_provinsi', postcode_user = '$update_postcode' WHERE id = '$id_user'") or die('query failed');
+   mysqli_query($conn, "UPDATE `user` SET nama_user = '$update_name', email_user = '$update_email', nomor_user ='$update_phone', alamat_user = '$update_alamat',postcode_user = '$update_postcode' WHERE id = '$id_user'") or die('query failed');
+
+   $update_kota = mysqli_real_escape_string($conn, $_POST['update_kota']);
+   $update_provinsi = mysqli_real_escape_string($conn, $_POST['update_provinsi']);
+
+   
+
 
    $update_image = $_FILES['update_image']['name'];
    $update_image_size = $_FILES['update_image']['size'];

@@ -29,14 +29,15 @@ $listsabun = query($query);
             <?php foreach ($listsabun as $row) : ?>
             <tr class="thead-dark text-center">
                 <td><?= $i; ?></td>
-                <td><img src="../asset/img/<?= $row["gambar_sabun"]; ?>" width="80"></td>
-                <td><?= $row["nama_sabun"]; ?></td>
-                <td><?= $row["bahan_sabun"]; ?></td>
-                <td><?= $row["kegunaan_sabun"]; ?></td>
-                <td><?= $row["harga_sabun"]; ?></td>
+                <td><input type="hidden" name="product_gambar"><img src="../asset/uploaded-img/<?= $row["gambar_sabun"]; ?>" class="rounded foto" width="auto" height="50px"></td>
+                <td><input type="hidden" name="product_nama"><?= $row["nama_sabun"]; ?></td>
+                <td><input type="hidden" name="product_bahan"><?= $row["bahan_sabun"]; ?></td>
+                <td><input type="hidden" name="product_kegunaan"><?= $row["kegunaan_sabun"]; ?></td>
+                <td><input type="hidden" name="product_harga"><?= $row["harga_sabun"]; ?></td>
                 <td>
-                    <a href="ubah.php?id_sabun=<?= $row["id_sabun"]; ?>" class="btn btn-success">Masukan ke keranjang</a> <br>
-                    <a href="hapus.php?id_sabun=<?= $row["id_sabun"]; ?> " class="btn btn-warning" onclick="return confirm('Barang dimasukan ke wishlist')">Tambah kan ke wishlist</a>
+
+                    <input type="submit" class="btn" value="detail" name="add_to_cart">
+                    <input type="submit" class="btn" value="add to cart" onclick="return confirm('Beli sekarang?')" name="add_to_cart">
 
                 </td>            
             </tr>
