@@ -64,6 +64,15 @@ if(isset($_POST['add_to_cart'])){
  </style>
     <body>
 
+<?php
+
+if(isset($message)){
+   foreach($message as $message){
+      echo '<div class="message"><span>'.$message.'</span> <i class="fas fa-times" onclick="this.parentElement.style.display = `none`;"></i> </div>';
+   };
+};
+
+?>
 
         <div class="container mt-5">
         <p>Halo <b><?= $user['nama_user']; ?><br>
@@ -88,15 +97,6 @@ if(isset($_POST['add_to_cart'])){
                     </form>
                 </div>
                 </div>
-<?php
-
-if(isset($message)){
-   foreach($message as $message){
-      echo '<div class="message"><span>'.$message.'</span> <i class="fas fa-times" onclick="this.parentElement.style.display = `none`;"></i> </div>';
-   };
-};
-
-?>
                 <div id="tabel-sabun">
         <table border="1" cellpadding="10" cellspacing="0" width="600px" class="table table-bordered table-hover table-secondary mt-4">
             
@@ -113,6 +113,7 @@ if(isset($message)){
             <?php $i = 1; ?>
             <?php foreach ($listsabun as $row) : ?>
             <tr class="thead-dark text-center">
+                <form action="" method="post">
                 <td><?= $i; ?></td>
                 <td><input type="hidden" name="product_gambar"><img src="../asset/uploaded-img/<?= $row["gambar_sabun"]; ?>" class="rounded foto" width="auto" height="50px"></td>
                 <td><input type="hidden" name="product_nama"><?= $row["nama_sabun"]; ?></td>
@@ -121,10 +122,11 @@ if(isset($message)){
                 <td><input type="hidden" name="product_harga"><?= $row["harga_sabun"]; ?></td>
                 <td>
 
-                    <input type="submit" class="btn" value="detail" name="add_to_cart">
+                    <input type="submit" class="btn" value="detail">
                     <input type="submit" class="btn" value="add to cart" onclick="return confirm('Beli sekarang?')" name="add_to_cart">
 
-                </td>            
+                </td> 
+                </form>           
             </tr>
             <?php $i++; ?>
             <?php endforeach;  ?>
