@@ -78,6 +78,7 @@ if(isset($message)){
         <h1>List of health soaps</h1>
         <p>by Keira SoapFactory</p>
         <a href="profille.php" class="btn btn-primary">ubah profile</a>
+        <a href="cart.php" class="btn btn-primary">cart</a>
 
         <div class="row"> 
         <div class="col-md-3">
@@ -85,7 +86,7 @@ if(isset($message)){
             <div class="col-md">
                     <form action="" method="post">
                         <div class="input-group">
-                            <input type="text" name="keyword" class="form-control" placeholder="masukkan kata kunci" autocomplete="off" autofocus id="keyword">
+                            <input type="text" name="keyword" class="form-control" placeholder="masukkan kata kunci" autocomplete="off" id="keyword">
                             <div class="input-group-append">
                                 <button type="submit" name="cari" class="btn btn-secondary p-3" id="tombol-cari">Cari</button>
                             </div>
@@ -119,11 +120,11 @@ if(isset($message)){
                 <td><input type="hidden" name="product_harga" value="<?= $row["harga_sabun"]; ?>"><?= $row["harga_sabun"]; ?></td>
                 <td>
 
-                    <input type="submit" class="btn" value="detail">
-                    <input type="submit" class="btn" value="add to cart" onclick="return confirm('Tambah ke keranjang?')" name="add_to_cart">
+                    <a href="detail.php?id_sabun=<?= $row["id_sabun"]; ?> " class="btn btn-warning">detail</a>
 
+                    <input type="submit" class="btn" value="add to cart" onclick="return confirm('Tambah ke keranjang?')" name="add_to_cart">                   
                 </td> 
-                </form>           
+                </form>   
             </tr>
             <?php $i++; ?>
             <?php endforeach;  ?>

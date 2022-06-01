@@ -12,24 +12,8 @@ $query = "SELECT * FROM data_sabun
           harga_sabun LIKE '%$keyword%'
         ";
 $listsabun = query($query);
-
-if (isset($_POST['add_to_cart'])) {
-    $product_gambar = $_POST['product_gambar'];
-    $product_nama = $_POST['product_nama'];
-    $product_bahan = $_POST['product_bahan'];
-    $product_kegunaan = $_POST['product_kegunaan'];
-    $product_harga = $_POST['product_harga'];
-    $product_quantity = 1;
-
-    $select_cart = mysqli_query($conn, "SELECT * FROM `cart` WHERE nama_sabun_cart = '$product_nama'") or die(mysqli_error($conn));
-
-    
-    $insert_product = mysqli_query($conn, "INSERT INTO `cart`(id_cart,id_user, nama_sabun_cart, bahan_sabun_cart, kegunaan_sabun_cart, harga_sabun_cart, gambar_sabun_cart, quantity) VALUES(NULL, '$id_user','$product_nama', '$product_bahan', '$product_kegunaan', '$product_harga', '$product_gambar', '$product_quantity')") or die(mysqli_error($conn));
-    $message[] = 'product added to cart succesfully';
-    
-}
 ?>
- <table border="1" cellpadding="10" cellspacing="0" width="600px" class="table table-bordered table-hover table-secondary mt-4">
+<table border="1" cellpadding="10" cellspacing="0" width="600px" class="table table-bordered table-hover table-secondary mt-4">
             
             <tr class="thead-dark text-center">
                 <th>No.</th>
@@ -53,11 +37,9 @@ if (isset($_POST['add_to_cart'])) {
                 <td><input type="hidden" name="product_harga" value="<?= $row["harga_sabun"]; ?>"><?= $row["harga_sabun"]; ?></td>
                 <td>
 
-                    <input type="submit" class="btn" value="detail">
-                    <input type="submit" class="btn" value="add to cart" onclick="return confirm('Tambah ke keranjang?')" name="add_to_cart">
-
+                    <a href="detail.php?id_sabun=<?= $row["id_sabun"]; ?> " class="btn btn-warning">detail</a>                   
                 </td> 
-                </form>           
+                </form>   
             </tr>
             <?php $i++; ?>
             <?php endforeach;  ?>
