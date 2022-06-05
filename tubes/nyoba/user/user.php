@@ -50,15 +50,13 @@ if (isset($_POST['add_to_cart'])) {
             left: 285px;
             z-index: -1;
             display: none;
-        }
+            }
+            .foto {
+            width: auto;
+            height: 50px;
+            }
         </style>
     </head>
-    <style>
-    .foto {
-        width: auto;
-        height: 50px;
-    }
- </style>
     <body>
 
 <?php
@@ -79,6 +77,7 @@ if(isset($message)){
         <p>by Keira SoapFactory</p>
         <a href="profille.php" class="btn btn-primary">ubah profile</a>
         <a href="cart.php" class="btn btn-primary">cart</a>
+        <a href="check.php" class="btn btn-primary">Riwayat Pesanan</a>
 
         <div class="row"> 
         <div class="col-md-3">
@@ -120,7 +119,7 @@ if(isset($message)){
                 <td><input type="hidden" name="product_harga" value="<?= $row["harga_sabun"]; ?>"><?= $row["harga_sabun"]; ?></td>
                 <td>
 
-                    <a href="detail.php?id_sabun=<?= $row["id_sabun"]; ?> " class="btn btn-warning">detail</a>
+                    <a href="detail.php?gambar=<?= $row["gambar_sabun"] ?>&product_nama=<?= $row["nama_sabun"]  ?>&product_bahan=<?= $row["bahan_sabun"]?>&product_kegunaan=<?= $row["kegunaan_sabun"]  ?>&product_harga=<?= $row["harga_sabun"] ?>" class="btn btn-sm text-white bg-info">Detail</a>
 
                     <input type="submit" class="btn" value="add to cart" onclick="return confirm('Tambah ke keranjang?')" name="add_to_cart">                   
                 </td> 

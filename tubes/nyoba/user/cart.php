@@ -8,7 +8,7 @@ $id_user = $_SESSION['id_user'];
 if(isset($_POST['update_update_btn'])){
    $update_value = $_POST['update_quantity'];
    $update_id = $_POST['update_quantity_id'];
-   $update_quantity_query = mysqli_query($conn, "UPDATE `cart` SET quantity = '$update_value' WHERE id_cart = '$update_id' && id_user = '$id_user'");
+   $update_quantity_query = mysqli_query($conn, "UPDATE `cart` SET quantity = '$update_value' WHERE id_cart = '$update_id'");
    if($update_quantity_query){
       echo "
          <script>
@@ -21,7 +21,7 @@ if(isset($_POST['update_update_btn'])){
 
 if(isset($_GET['remove'])){
    $remove_id = $_GET['remove'];
-   mysqli_query($conn, "DELETE FROM `cart` WHERE id_cart = '$remove_id' && id_user = '$id_user'");
+   mysqli_query($conn, "DELETE FROM `cart` WHERE id_cart = '$remove_id'");
    echo "
          <script>
             alert('data berhasil dihapus!!');
@@ -80,7 +80,7 @@ if(isset($_GET['delete_all'])){
 
          <?php 
          
-         $select_cart = mysqli_query($conn, "SELECT * FROM `cart`");
+         $select_cart = mysqli_query($conn, "SELECT * FROM `cart` WHERE id_user= '$id_user'");
          $grand_total = 0;
          if(mysqli_num_rows($select_cart) > 0){
             while($fetch_cart = mysqli_fetch_assoc($select_cart)){
@@ -89,7 +89,7 @@ if(isset($_GET['delete_all'])){
          <tr>
             <td><img src="<?php echo $fetch_cart['gambar_sabun_cart']; ?>" height="100" alt=""></td>
             <td><?php echo $fetch_cart['nama_sabun_cart']; ?></td>
-            <td>$<?php echo number_format($fetch_cart['harga_sabun_cart']); ?>/-</td>
+            <td>Rp.<?php echo number_format($fetch_cart['harga_sabun_cart']); ?>/-</td>
             <td>
                <form action="" method="post">
                   <input type="hidden" name="update_quantity_id"  value="<?php echo $fetch_cart['id_cart']; ?>" >
@@ -98,7 +98,7 @@ if(isset($_GET['delete_all'])){
                </form>   
             </td>
             <?php $sub_total = $fetch_cart['harga_sabun_cart'] * $fetch_cart['quantity']; ?>
-            <td>$<?php echo number_format($sub_total); ?>/-</td>
+            <td>Rp.<?php echo number_format($sub_total); ?>/-</td>
             <td><a href="cart.php?remove=<?php echo $fetch_cart['id_cart']; ?>" onclick="return confirm('remove item from cart?')" class="delete-btn"> <i class="fas fa-trash"></i> remove</a></td>
          </tr>
          <?php

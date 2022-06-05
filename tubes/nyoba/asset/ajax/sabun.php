@@ -37,7 +37,9 @@ $listsabun = query($query);
                 <td><input type="hidden" name="product_harga" value="<?= $row["harga_sabun"]; ?>"><?= $row["harga_sabun"]; ?></td>
                 <td>
 
-                    <a href="detail.php?id_sabun=<?= $row["id_sabun"]; ?> " class="btn btn-warning">detail</a>                   
+                    <a href="detail.php?gambar=<?= $row["gambar_sabun"] ?>&product_nama=<?= $row["nama_sabun"]  ?>&product_bahan=<?= $row["bahan_sabun"]?>&product_kegunaan=<?= $row["kegunaan_sabun"]  ?>&product_harga=<?= $row["harga_sabun"] ?>" class="btn btn-sm text-white bg-info">Detail</a>
+
+                    <input type="submit" class="btn" value="add to cart" onclick="return confirm('Tambah ke keranjang?')" name="add_to_cart">                   
                 </td> 
                 </form>   
             </tr>

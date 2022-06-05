@@ -12,6 +12,16 @@ function query($query) {
 	return $rows;
 }
 
+function queryorder($query) {
+	global $conn;
+	$result = mysqli_query($conn, $query);
+	$rows = [];
+	while( $row = mysqli_fetch_assoc($result) ) {
+		$rows[] = $row;
+	}
+	return $rows;
+}
+
 function tambah($data) {
 	global $conn;
 	//ambil data dari tiap elemen dalam form
@@ -179,16 +189,16 @@ function profile($data){
 	global $conn;
 
 	$id_user = $data["id_user"];
-	$update_name = mysqli_real_escape_string($conn, $_POST['update_name']);
+	$update_name = ucwords(mysqli_real_escape_string($conn, $_POST['update_name']));
    $update_email = mysqli_real_escape_string($conn, $_POST['update_email']);
    $update_phone = mysqli_real_escape_string($conn, $_POST['update_phone']);
-   $update_alamat = mysqli_real_escape_string($conn, $_POST['update_alamat']);
-   $update_postcode = mysqli_real_escape_string($conn, $_POST['update_postcode']);
-   $update_kota = mysqli_real_escape_string($conn, $_POST['update_kota']);
-   $update_provinsi = mysqli_real_escape_string($conn, $_POST['update_provinsi']);
+   $update_alamat = ucwords(mysqli_real_escape_string($conn, $_POST['update_alamat']));
+   $update_postcode = ucwords(mysqli_real_escape_string($conn, $_POST['update_postcode']));
+   $update_kota = ucwords(mysqli_real_escape_string($conn, $_POST['update_kota']));
+   $update_provinsi = ucwords(mysqli_real_escape_string($conn, $_POST['update_provinsi']));
 
 
-   mysqli_query($conn, "UPDATE `user` SET nama_user = '$update_name', email_user = '$update_email', nomor_user ='$update_phone', alamat_user = '$update_alamat',postcode_user = '$update_postcode' WHERE id = '$id_user'") or die('query failed');
+   mysqli_query($conn, "UPDATE `user` SET nama_user = '$update_name', email_user = '$update_email', nomor_user ='$update_phone', alamat_user = '$update_alamat',postcode_user = '$update_postcode', kota_user = '$update_kota', provinsi = '$update_provinsi' WHERE id = '$id_user'") or die('query failed');
 
 
 
