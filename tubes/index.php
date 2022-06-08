@@ -85,7 +85,7 @@ if(isset($message)){
                 <li><a class="dropdown-item" href="login.php">Login</a></li>
                 <li><a class="dropdown-item" href="registrasi.php">Register</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#scrollspyHeading3">Tentang Kami</a></li>
+                <li><a class="dropdown-item" href="https://github.com/keirattlexnake/pw2022_c_213040088/blob/main/tubes/readme.txt" target="_blank">Tentang Kami</a></li>
               </ul>
             </li>
           </ul>
