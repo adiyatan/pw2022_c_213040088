@@ -40,8 +40,8 @@ $cek = mysqli_num_rows($login);
 
                //cookie
                if (isset( $_POST['remember'])) {
-                    setcookie('id',$data['id'], time() + 60);
-                    setcookie('key', hash('sha256', $data['username']), time()+60);
+                    setcookie('id',$data['id'], time() + 2592000, "/");
+                    setcookie('key', hash('sha256', $data['username']), time() + 2592000, "/");
                }
                header("location:../admin/admin.php");
 
@@ -52,8 +52,8 @@ $cek = mysqli_num_rows($login);
                     $_SESSION['role'] = "user";
                     //cookie
                     if (isset( $_POST['remember'])) {
-                    setcookie('id',$data['id'], time() + 60);
-                    setcookie('key', hash('sha256', $data['username']), time()+60);
+                    setcookie('id',$data['id'], time() + 2592000, "/");
+                    setcookie('key', hash('sha256', $data['username']), time() + 2592000, "/");
                }
                     header("location:../user/user.php");
                }

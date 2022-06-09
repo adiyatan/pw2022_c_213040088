@@ -1,5 +1,26 @@
 <?php
 require 'php/functions.php';
+
+if (isset($_COOKIE['id']) && isset($_COOKIE['key'])) {
+  $id = $_COOKIE['id'];
+  $key = $_COOKIE['key'];
+
+  //ambil username berdasarkan id
+  $result = mysqli_query($conn, "SELECT username FROM user WHERE id ='$id'");
+  $rows = mysqli_fetch_assoc($result);
+
+  //cek cookie dan id
+  if ($key === hash('sha256', $rows['username'])) {
+    $_SESSION['login'] = true;
+  }
+}
+
+if (isset($_COOKIE['login'])) {
+  if ($_COOKIE['login'] == 'true') {
+    $_COOKIE['login'] = true;
+  }
+}
+
  ?>
 <html>
     <head>
