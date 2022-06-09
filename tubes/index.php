@@ -104,16 +104,16 @@ if(isset($message)){
               <a class="nav-link" href="#scrollspyHeading1" style="color:black; background-color: #0DCAF0;">Produk</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#scrollspyHeading2" style="color:black;">Testimoni</a>
+              <a class="nav-link" href="#scrollspyHeading2" style="color:black; background-color: #0DCAF0;">Testimoni</a>
             </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" style="color:black;">Lainnya</a>
-              <ul class="dropdown-menu fs-4">
-                <li><a class="dropdown-item" href="login.php">Login</a></li>
-                <li><a class="dropdown-item" href="registrasi.php">Register</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="https://github.com/keirattlexnake/pw2022_c_213040088/blob/main/tubes/readme.txt" target="_blank">Tentang Kami</a></li>
-              </ul>
+            <li class="nav-item">
+              <a class="nav-link" href="login.php" style="color:black;">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="registrasi.php" style="color:black;">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="tentangkami.php" style="color:black;" target="_blank">Tentang Kami</a>
             </li>
           </ul>
         </nav>
@@ -177,7 +177,13 @@ if(isset($message)){
                         </div>
 
                       </div>
-                      </div>
+                      <footer class="mt-auto text-dark-50 text-center">
+                        <p>COPYRIGHT &copy; 2022 <a href="https://keirasoap.site/" class="text-dark">Keira Soap Factory</a> ALL RIGHTS RESERVED.</p>
+                      </footer>
+                      </div><br><br>
+                      
+
+                    
     </body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.5.0-beta.5/lightgallery.min.js" integrity="sha512-+cRLP8t0rsqPalRf//6kfVwRVPzxvwtgLOm8XoSw+M/ND6/0aODP3WFs8m4EPtqsJ9aurqbYq4q/0u8lRJSldA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

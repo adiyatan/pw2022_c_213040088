@@ -56,9 +56,6 @@ if (isset($_POST['register'])) {
               <a class="nav-link" href="index.php#scrollspyHeading1" style="color:black;">Beranda</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.php#scrollspyHeading2" style="color:black;">Testimoni</a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link" href="login.php" style="color:black;">Login</a>
             </li>
           </ul>

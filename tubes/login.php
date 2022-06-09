@@ -44,9 +44,6 @@ if (isset($_SESSION['login'])) {
               <a class="nav-link" href="index.php#scrollspyHeading1" style="color:black;">Beranda</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.php#scrollspyHeading2" style="color:black;">Testimoni</a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link" href="registrasi.php" style="color:black;">Registrasi</a>
             </li>
           </ul>
