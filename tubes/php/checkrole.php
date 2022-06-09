@@ -2,6 +2,27 @@
 session_start();
 include 'functions.php';
 
+
+if (isset($_COOKIE['id']) && isset($_COOKIE['key'])) {
+  $id = $_COOKIE['id'];
+  $key = $_COOKIE['key'];
+
+  //ambil username berdasarkan id
+  $result = mysqli_query($conn, "SELECT username FROM user WHERE id ='$id'");
+  $rows = mysqli_fetch_assoc($result);
+
+  //cek cookie dan id
+  if ($key === hash('sha256', $row['username'])) {
+    $_SESSION['login'] = true;
+  }
+}
+
+if (isset($_COOKIE['login'])) {
+  if ($_COOKIE['login'] == 'true') {
+    $_COOKIE['login'] = true;
+  }
+}
+
 $username = mysqli_real_escape_string($conn,$_POST['username']);
 $password = mysqli_real_escape_string($conn,$_POST['password']);
 
@@ -16,6 +37,12 @@ $cek = mysqli_num_rows($login);
                $_SESSION['id_admin'] = $data['id'];
                $_SESSION['username'] = $username;
                $_SESSION['role'] = "admin";
+
+               //cookie
+               if (isset( $_POST['remember'])) {
+                    setcookie('id',$data['id'], time() + 60);
+                    setcookie('key', hash('sha256', $data['username']), time()+60);
+               }
                header("location:../admin/admin.php");
 
           // cek jika user login sebagai user
@@ -23,6 +50,11 @@ $cek = mysqli_num_rows($login);
                     $_SESSION['id_user'] = $data['id'];
                     $_SESSION['username'] = $username;
                     $_SESSION['role'] = "user";
+                    //cookie
+                    if (isset( $_POST['remember'])) {
+                    setcookie('id',$data['id'], time() + 60);
+                    setcookie('key', hash('sha256', $data['username']), time()+60);
+               }
                     header("location:../user/user.php");
                }
                else{

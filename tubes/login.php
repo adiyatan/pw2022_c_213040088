@@ -48,6 +48,13 @@ require 'php/functions.php';
             <label for="floatingInput">Password :</label>
             </div>
 
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="remember" name="remember">
+              <label class="form-check-label" for="remember">
+                Login selama 30 hari
+              </label>
+            </div> <br>
+
             <input type="submit" class="tombol_login" name="login" value="LOGIN" style="color:black; background-color: #0DCAF0;">
             <br/>
             <br/>
