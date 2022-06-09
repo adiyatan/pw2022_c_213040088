@@ -2,6 +2,32 @@
 
 require 'php/functions.php';
 
+if (isset($_COOKIE['id']) && isset($_COOKIE['key'])) {
+  $id = $_COOKIE['id'];
+  $key = $_COOKIE['key'];
+
+  //ambil username berdasarkan id
+  $result = mysqli_query($conn, "SELECT username FROM user WHERE id ='$id'");
+  $rows = mysqli_fetch_assoc($result);
+
+  //cek cookie dan id
+  if ($key === hash('sha256', $rows['username'])) {
+    $_SESSION['login'] = true;
+  }
+}
+
+if(isset($_SESSION['login'])){
+  if ($_SESSION['user'] = true) {
+    header("Location: user/user.php");
+  }
+}
+
+if (isset($_SESSION['login'])) {
+  if ($_SESSION['admin'] = true) {
+    header("Location: admin/admin.php");
+  }
+}
+
 if (isset($_POST['register'])) {
     if(registrasi($_POST) > 0 ) {
         echo "<script>

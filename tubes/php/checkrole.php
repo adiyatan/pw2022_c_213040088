@@ -12,14 +12,8 @@ if (isset($_COOKIE['id']) && isset($_COOKIE['key'])) {
   $rows = mysqli_fetch_assoc($result);
 
   //cek cookie dan id
-  if ($key === hash('sha256', $row['username'])) {
+  if ($key === hash('sha256', $rows['username'])) {
     $_SESSION['login'] = true;
-  }
-}
-
-if (isset($_COOKIE['login'])) {
-  if ($_COOKIE['login'] == 'true') {
-    $_COOKIE['login'] = true;
   }
 }
 
@@ -38,6 +32,11 @@ $cek = mysqli_num_rows($login);
                $_SESSION['username'] = $username;
                $_SESSION['role'] = "admin";
 
+               if($data["role"] == "admin"){
+                $_SESSION['admin'] = true;
+               }
+
+               $_SESSION['login'] = $data;
                //cookie
                if (isset( $_POST['remember'])) {
                     setcookie('id',$data['id'], time() + 2592000, "/");
@@ -50,6 +49,12 @@ $cek = mysqli_num_rows($login);
                     $_SESSION['id_user'] = $data['id'];
                     $_SESSION['username'] = $username;
                     $_SESSION['role'] = "user";
+
+                    if($data["role"] == "user"){
+                     $_SESSION['user'] = true;
+                    }
+
+                    $_SESSION['login'] = $data;
                     //cookie
                     if (isset( $_POST['remember'])) {
                     setcookie('id',$data['id'], time() + 2592000, "/");

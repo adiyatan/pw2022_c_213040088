@@ -5,7 +5,7 @@ require '../php/functions.php';
 session_start();
  // cek apakah yang mengakses halaman ini sudah login
  if($_SESSION['role']==""){
-  header("location:../index.php");
+  header("location:../login.php?pesan=gagal");
  } 
 
 if (isset($_POST['submit'])) {	

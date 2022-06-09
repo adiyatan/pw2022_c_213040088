@@ -1,7 +1,7 @@
 <?php
- session_start();
 
  require '../php/functions.php';
+ session_start();
 
  $admin_id = $_SESSION['id_admin'];
  $select = mysqli_query($conn, "SELECT * FROM `user` WHERE id = '$admin_id'") or die('query failed');
@@ -10,7 +10,11 @@ if(mysqli_num_rows($select) > 0){
 }
  // cek apakah yang mengakses halaman ini sudah login
  if($_SESSION['role']==""){
-  header("location:../index.php?pesan=gagal");
+  header("location:../login.php?pesan=gagal");
+ }
+
+ if($_SESSION['role']=="user"){
+  header("location:../login.php?pesan=gagal");
  }
 
  ?>

@@ -109,6 +109,7 @@ if(isset($message)){
         <form class="col-12 col-lg-auto mt-3 mb-lg-0 me-lg-auto">
         <p>Halo <b><?= $user['nama_user']; ?></b> Anda telah login sebagai <b><?php echo $_SESSION['role']; ?></b>.</p>
         <p style="font-style: italic;">Selamat Berbelanja :)</p>
+        <p>Untuk konsultasi hubungi <span><a href="https://wa.me/6282115914639/?text=Halo!%0ASaya%20ingin%20konsultasi%20sabun" target="_blank">Admin</a></span></p>
         </form>
 
         <div class="text-end mt-2">

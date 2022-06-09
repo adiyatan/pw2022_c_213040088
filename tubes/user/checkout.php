@@ -100,7 +100,7 @@ if(isset($_POST['order_btn'])){
             $grand_total = $total += $total_price;
       ?>
       <span><?= $fetch_cart['nama_sabun_cart']; ?>(<?= $fetch_cart['quantity']; ?>)
-         <br><img src="<?= $fetch_cart['gambar_sabun_cart']; ?>">
+         <br><img src="<?= $fetch_cart['gambar_sabun_cart']; ?>" width="auto" height="50px">
       </span>
       <?php
          }
